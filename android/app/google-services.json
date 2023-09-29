@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "433337671501",
+    "project_id": "nathan-wick-flutter-template",
+    "storage_bucket": "nathan-wick-flutter-template.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:433337671501:android:d24624cc297c3b0e8de104",
+        "android_client_info": {
+          "package_name": "com.nathanwick.flutter_template"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANZrAMKxtsmd13R7HWY8x8nQrJE6St7ow"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
