@@ -1,9 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_template/contexts/authentication.dart';
+
 import 'information/firebase_options.dart';
-import 'widgets/navigation.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -22,7 +24,8 @@ class App extends StatelessWidget {
         // TODO: Enter the app's colors.
         primarySwatch: Colors.blue,
       ),
-      home: const Navigation(),
+      home: const Authentication(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
