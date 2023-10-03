@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_template/contexts/authentication.dart';
 
+import 'contexts/authentication.dart';
 import 'information/firebase_options.dart';
 
 void main() async {
@@ -18,11 +18,9 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // TODO: Enter the app's name.
-      title: 'App Name',
+      title: 'App Name', // TODO: Enter the app's name.
       theme: ThemeData(
-        // TODO: Enter the app's colors.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.blue, // TODO: Enter the app's colors.
       ),
       home: const Authentication(),
       debugShowCheckedModeBanner: false,
