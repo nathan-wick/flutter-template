@@ -48,7 +48,7 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Center(
+        child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -61,13 +61,11 @@ class _SignInState extends State<SignIn> {
               TextInput(
                 controller: emailController,
                 name: 'Email',
-                example: 'darth.vader@empire.gov',
               ),
               const SizedBox(height: 10),
               TextInput(
                 controller: passwordController,
                 name: 'Password',
-                example: 'DarkSide42!',
                 obscureText: true,
               ),
               const SizedBox(height: 10),
