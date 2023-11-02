@@ -1,14 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 
-class User {
-  String name;
-  final String email;
-  final String photo;
+class UserModel extends ChangeNotifier {
+  String email;
+  String? name;
+  String? photo;
 
-  User({
-    required this.name,
+  UserModel({
     required this.email,
-    required this.photo,
+    this.name,
+    this.photo,
   });
 
   Map<String, dynamic> toJson() {
@@ -19,8 +20,8 @@ class User {
     };
   }
 
-  User.fromDocumentSnapshot(DocumentSnapshot snapshot)
-    : name = snapshot['name'],
-      email = snapshot['email'],
-      photo = snapshot['photo'];
+  UserModel.fromDocumentSnapshot(DocumentSnapshot snapshot) :
+    name = snapshot['name'],
+    email = snapshot['email'],
+    photo = snapshot['photo'];
 }

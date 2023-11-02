@@ -1,8 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'contexts/authentication.dart';
 import 'information/firebase_options.dart';
+import 'models/user.dart';
+import 'services/database.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,13 +20,21 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'App Name', // TODO: Enter the app's name.
-      theme: ThemeData(
-        primarySwatch: Colors.blue, // TODO: Enter the app's colors.
+    return MultiProvider(
+      providers: [
+        FutureProvider<UserModel>(
+          initialData: UserModel(email: ''),
+          create: (context) async => await DatabaseService().getUser(),
+        ),
+      ],
+      child: MaterialApp(
+        title: 'App Name', // TODO: Enter the app's name.
+        theme: ThemeData(
+          primarySwatch: Colors.blue, // TODO: Enter the app's colors.
+        ),
+        home: const Authentication(),
+        debugShowCheckedModeBanner: false,
       ),
-      home: const Authentication(),
-      debugShowCheckedModeBanner: false,
     );
   }
 }
