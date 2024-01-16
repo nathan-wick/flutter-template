@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../widgets/main_navigation_bar.dart';
+
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -23,6 +25,7 @@ class _HomeState extends State<Home> {
       body: const Center(
         child: _placeholder,
       ),
+      bottomNavigationBar: const MainNavigationBar(),
     );
   }
 }

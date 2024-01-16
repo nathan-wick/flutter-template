@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../contexts/authentication.dart';
 import '../../models/user.dart';
 import '../../services/database.dart';
 import '../../widgets/button_input.dart';
@@ -15,13 +14,10 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-  late final nameController = TextEditingController();
+  final nameController = TextEditingController();
 
   void exit() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const Authentication()),
-    );
+    Navigator.popAndPushNamed(context, '/profile');
   }
 
   void save(UserModel newUser) async {

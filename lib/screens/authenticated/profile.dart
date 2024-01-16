@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import '../../models/user.dart';
 import '../../screens/authenticated/settings.dart';
 import '../../widgets/button_input.dart';
+import '../../widgets/main_navigation_bar.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -16,7 +17,7 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
-    final UserModel user = Provider.of<UserModel>(context);
+    final UserModel? user = context.watch<UserModel?>();
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -29,7 +30,7 @@ class _ProfileState extends State<Profile> {
             children: [
               const SizedBox(height: 40),
               Image.network(
-                user.photo ?? '',
+                user?.photo ?? '',
                 width: 100,
                 height: 100,
                 errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
@@ -41,14 +42,14 @@ class _ProfileState extends State<Profile> {
               ),
               const SizedBox(height: 20),
               Text(
-                user.name ?? '',
+                user?.name ?? '',
                 style: const TextStyle(
                   fontSize: 24,
                 ),
               ),
               const SizedBox(height: 10),
               Text(
-                user.email ?? '',
+                user?.email ?? '',
                 style: const TextStyle(
                   color: Colors.grey,
                   fontSize: 16,
@@ -57,10 +58,7 @@ class _ProfileState extends State<Profile> {
               const SizedBox(height: 20),
               ButtonInput(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Settings()),
-                  );
+                  Navigator.popAndPushNamed(context, '/settings');
                 },
                 icon: Icons.settings,
                 message: 'Settings',
@@ -79,6 +77,7 @@ class _ProfileState extends State<Profile> {
           ),
         ),
       ),
+      bottomNavigationBar: const MainNavigationBar(defaultIndex: 1),
     );
   }
 }
